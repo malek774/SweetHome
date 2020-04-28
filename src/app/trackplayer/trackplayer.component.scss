@@ -29,6 +29,10 @@
 
                 .like-container{
                     padding-left: 5px;
+                    img{
+                        width: 20px;
+                        height: 20px;
+                    }
                 }
             }
             .artist-name{
@@ -39,8 +43,34 @@
     }
 
     .center-part{
-        display: flex;
-        justify-content: space-evenly;
+        .track-controls{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 400px;
+
+            img{
+                width: 20px;
+                height: 20px;
+            }
+
+            .playpause-button{
+                img{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+
+            .backwards-button{
+                img{
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        .track-bar{
+
+        }
         
     }
 
@@ -51,8 +81,5 @@
     }
 
 
-    img{
-        width: 20px;
-        height: 20px;
-    }
+
 }
