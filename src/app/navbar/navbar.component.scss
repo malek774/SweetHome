@@ -1,0 +1,49 @@
+.navbar-container{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4F99DE;
+    width: 100%;
+    padding: 20px 20px;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Fredoka One', cursive;
+
+    .left-part{
+        display: flex;
+        align-items: center;
+
+        .logo{
+            transform: rotate(-20deg);
+            img{
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        .app-name{
+            font-size: 1.5em;
+            padding-left: 10px;
+        }
+
+    }
+
+    .center-part{
+        ul{
+            display: flex;
+            justify-content: space-between;
+            width: 500px;
+
+            li{
+                list-style-type: none;
+            }
+        }
+    }
+
+    .right-part{
+
+    }
+    
+}
+
