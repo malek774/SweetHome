@@ -66,6 +66,13 @@
                     transform: rotate(180deg);
                 }
             }
+
+            .random-button, 
+            .repeat-button{
+                img{
+                    opacity: 0.6;
+                }
+            }
         }
 
         .track-bar{
