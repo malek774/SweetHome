@@ -106,9 +106,22 @@
     .right-part{
         display: flex;
         justify-content: space-evenly;
-        
+        align-items: center;
+        width: 120px;
+
+        .volume-logo{
+            img{
+                display: block;
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .volume-bar{
+            width: 80px;
+            height: 5px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.37);
+        }
     }
-
-
-
 }
