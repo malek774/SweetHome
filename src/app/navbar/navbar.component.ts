@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-navbar',

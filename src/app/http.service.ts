@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +18,15 @@ export class HttpService {
 
   getSpotifyKey() {
     return window.open(this.Oauth);
+  }
+
+  test() {
+    return this.http.get("https://api.spotify.com/v1/playlists/37i9dQZEVXbJPcfkRz0wJ0", {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer BQAs9O-4yNBj-D2gBuA1lpYDMO7A46O4HRCd0SZY3NDsZWnMY7nJUbVI-ENyOBpx0mJXu8MO-XesFzKtqb_gdQcB1wBYahdzPKSkm6U2euq0uL3KaVWgh-UJwqhANARRR06JTmr-iK4kliV-R7OY9HmvzzXXvuS7lUg`,
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      })
+    });
   }
 }
