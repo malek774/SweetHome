@@ -14,7 +14,7 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  getSpotifyKey() {
+  loginAuth() {
     return window.open(this.Oauth);
   }
 
