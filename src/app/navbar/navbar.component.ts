@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   }
 
   openLoginPage() {
-    this._http.getSpotifyKey();
+    this._http.loginAuth();
   }
 
 }
