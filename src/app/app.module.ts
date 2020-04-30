@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TrackplayerComponent } from './trackplayer/trackplayer.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { MaincontentComponent } from './maincontent/maincontent.component';
+import { ContentComponent } from './maincontent/content/content.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MaincontentComponent } from './maincontent/maincontent.component';
     NavbarComponent,
     TrackplayerComponent,
     SearchbarComponent,
-    MaincontentComponent
+    MaincontentComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,
