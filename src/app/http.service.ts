@@ -29,4 +29,11 @@ export class HttpService {
       headers: this.headers
     });
   }
+
+  searchItem(query, type, market, limit, offset) {
+    let queryEncode = query.replace(" ", "%20");
+    return this.http.get(`https://api.spotify.com/v1/search?query=${queryEncode}&type=album,artist,playlist,track`, {
+      headers: this.headers
+    });
+  }
 }
