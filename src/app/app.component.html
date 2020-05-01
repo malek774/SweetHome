@@ -1,9 +1,14 @@
-<app-loginpage></app-loginpage>
+<div *ngIf="loggedIn; else loginPage">
+    <app-navbar></app-navbar>
 
-<!-- <app-navbar></app-navbar>
+    <app-maincontent></app-maincontent>
 
-<app-maincontent></app-maincontent>
+    <app-trackplayer></app-trackplayer>
 
-<app-trackplayer></app-trackplayer>
+    <router-outlet></router-outlet>
 
-<router-outlet></router-outlet> -->
+</div>
+
+<ng-template #loginPage>
+    <app-loginpage (signin)="openDashboard($event)"></app-loginpage>
+</ng-template>
