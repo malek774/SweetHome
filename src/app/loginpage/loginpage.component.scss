@@ -1,0 +1,56 @@
+.login-container{
+    height: 100vh;
+    background: linear-gradient(125.72deg, #4F99DE 36.64%, rgba(59, 178, 115, 0.63) 87.48%);
+    color: white;
+    font-family: 'Fredoka One', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .main-content-container{
+        display: flex;
+        .logo{
+            margin-right: 15px;
+            img{
+                width: 150px;
+                height: 150px;
+                transform: rotate(-20deg);
+            }
+        }
+
+        .title-header-button{
+
+            padding-top: 25px;
+            padding-left: 25px;
+            .app-name{
+                text-transform: uppercase;
+                font-size: 6em;
+            }
+            .app-slogan{
+                font-size: 2.2em;
+            }
+            .signup-button{
+                text-transform: uppercase;
+                width: 150px;
+                height: 55px;
+                font-size: 1.5em;
+                background-color: #E8C547;
+                border-radius: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 10px;
+            }
+        }
+
+        .info-button{
+            padding-top: 20px;
+            .logo-info{
+                img{
+                    width: 35px;
+                    height: 35px
+                }
+            }
+        }
+    }
+}

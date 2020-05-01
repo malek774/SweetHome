@@ -16,9 +16,7 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    this._http.test().subscribe(data => {
-      console.log(data);
-    })
+
   }
 
   ngDoCheck() {
