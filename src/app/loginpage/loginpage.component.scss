@@ -19,7 +19,6 @@
         }
 
         .title-header-button{
-
             padding-top: 25px;
             padding-left: 25px;
             .app-name{
@@ -66,4 +65,10 @@
             
         }
     }
+}
+
+
+::ng-deep .tooltip-green{
+    font-size: 0.7em;
+    background-color: rgba(59, 178, 114, 0.5);
 }
