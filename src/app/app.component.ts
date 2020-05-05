@@ -7,7 +7,7 @@ import { HttpService } from './http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, DoCheck, AfterViewInit {
+export class AppComponent implements OnInit {
   spotifyKey: string;
 
   constructor(private route: ActivatedRoute, private _http: HttpService) {
@@ -15,14 +15,7 @@ export class AppComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   ngOnInit() {
-
-  }
-
-  ngAfterViewInit() {
     this.spotifyKey = this.route.snapshot.fragment.split('&')[0].substr(13);
     console.log(this.spotifyKey);
   }
-  ngDoCheck() {
-  }
-
 }
