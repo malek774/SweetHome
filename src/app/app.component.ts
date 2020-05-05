@@ -1,6 +1,4 @@
 import { Component, OnInit, DoCheck, AfterViewInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { HttpService } from './http.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +8,7 @@ import { HttpService } from './http.service';
 export class AppComponent implements OnInit {
   spotifyKey: string;
 
-  constructor(private route: ActivatedRoute, private _http: HttpService) {
+  constructor() {
 
   }
 
