@@ -1,4 +1,4 @@
-<div *ngIf="loggedIn; else loginPage">
+<!-- <div *ngIf="loggedIn; else loginPage">
     <app-navbar></app-navbar>
 
     <app-maincontent></app-maincontent>
@@ -11,4 +11,6 @@
 
 <ng-template #loginPage>
     <app-loginpage (signin)="openDashboard($event)"></app-loginpage>
-</ng-template>
+</ng-template> -->
+
+<router-outlet></router-outlet>

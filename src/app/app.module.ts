@@ -12,6 +12,7 @@ import { MaincontentComponent } from './maincontent/maincontent.component';
 import { ContentComponent } from './maincontent/content/content.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SearchbarComponent,
     MaincontentComponent,
     ContentComponent,
-    LoginpageComponent
+    LoginpageComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
