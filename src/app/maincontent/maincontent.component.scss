@@ -1,4 +1,14 @@
 h1{
-    position: relative;
     margin-top: 100px;
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-weight: 500;
+}
+
+.content-container{
+    width: 100%;
+    //border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

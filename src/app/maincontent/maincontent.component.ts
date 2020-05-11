@@ -13,7 +13,7 @@ export class MaincontentComponent implements OnInit {
   constructor(private spotify: SpotifywebService) { }
 
   ngOnInit(): void {
-
+    this.getData();
   }
 
   getData() {
