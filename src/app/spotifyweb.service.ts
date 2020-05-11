@@ -19,24 +19,23 @@ export class SpotifywebService {
     showDialog: true
   };
 
-  spotifyKey = "";
+  spotifyKey = "BQD9jdGV36wvKC-k7GpczriuIAQ6cszILyIT8QMrSpO0fOGDZmssB75Sc_qr65Z8KaPuUYZFWJMPgDsZbPenJ0GNHkpopO5IFA_Xn0yX1mO3bQIlOT8ZFcUe-jBJefcsQ8EOg137TmL5DdZlXIvOOxMTEE_rQVJWDCw0b1qqtiGQgUJLZrzJMMRoYiLMnTF457x9KB7MXC7sbZk_PlRsyQAaaYQRnq-uKp2itTQ20vgRRsIAFdiOR_bZM-1JUBrM7PkpQXbChFtOFA";
 
   Oauth = `${this.authURL}?client_id=${this.query_param.client_id}&redirect_uri=${encodeURIComponent(this.query_param.redirectUri)}&scope=${encodeURIComponent(this.query_param.scopes)}&response_type=token&state=123`;
 
   headers = new HttpHeaders({
-    "Authorization": this.spotifyKey,
+    "Authorization": "Bearer" + this.spotifyKey,
     "Accept": "application/json",
     "Content-Type": "application/json"
   });
-
-
 
   loginAuth() {
     window.open(this.Oauth);
   }
 
   test() {
-    return this.http.get("https://api.spotify.com/v1/search?query=dotan&type=artist", {
+    console.log(this.spotifyKey);
+    return this.http.get("https://api.spotify.com/v1/search?q=dotan&type=artist", {
       headers: this.headers
     });
   }
@@ -49,7 +48,7 @@ export class SpotifywebService {
   }
 
   getCategories() {
-    console.log(this.spotifyKey);
+    //console.log(this.spotifyKey);
     return this.http.get(`https://api.spotify.com/v1/browse/categories`, {
       headers: this.headers
     });

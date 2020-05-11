@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
     this.spotifyKey = this.activeRoute.snapshot.fragment.split('&')[0].substr(13);
     //store spotify key back in spotify service
     this.spotify.setSpotifyKey(this.spotifyKey);
-    console.log(this.spotifyKey);
+    //console.log(this.spotifyKey);
   }
 
 }

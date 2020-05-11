@@ -18,7 +18,7 @@ export class MaincontentComponent implements OnInit {
 
   getData() {
     this.spotify.getCategories().subscribe(data => {
-      //this.dataArray = data.categories.items;
+      this.dataArray = data.categories.items;
       console.log(data)
       console.log(this.dataArray);
     });
