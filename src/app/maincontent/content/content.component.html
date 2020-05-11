@@ -1,10 +1,10 @@
-<div class="content-container">
+<div class="content-container" *ngFor="let item of data">
     <div class="image-container">
-        <img src="" alt="">
+        <!-- <img [src]="item.icons[0].url" alt=""> -->
     </div>
     <div class="description-container">
         <div class="header">
-
+            {{item.name}}
         </div>
         <p class="description">
 

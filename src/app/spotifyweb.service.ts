@@ -5,13 +5,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SpotifywebService {
+  constructor(private http: HttpClient) { }
 
-  authEndPoint = "https://accounts.spotify.com/authorize";
-  clientId = "edb6db7c1c604795b872fe40255d52fc";
-  redirectUri = 'http://localhost:4200';
+  //redirectUri = 'http://localhost:4200';
+  apiFirstPartURL = "https://api.spotify.com/v1/";
+  authURL = "https://accounts.spotify.com/authorize";
+
+  query_param = {
+    client_id: "21e0d925502047b08c82d197558a42e5",
+    response_type: "code",
+    redirectUri: "http://127.0.0.1:4200/dashboard/",
+    scopes: "user-read-private user-read-email streaming",
+    showDialog: true
+  };
+
   spotifyKey = "";
 
-  Oauth = `https://accounts.spotify.com/authorize?client_id=21e0d925502047b08c82d197558a42e5&redirect_uri=http:%2F%2F127.0.0.1:4200%2F&scope=user-read-private%20user-read-email%20streaming&response_type=token&state=123`;
+  Oauth = `${this.authURL}?client_id=${this.query_param.client_id}&redirect_uri=${encodeURIComponent(this.query_param.redirectUri)}&scope=${encodeURIComponent(this.query_param.scopes)}&response_type=token&state=123`;
 
   headers = new HttpHeaders({
     "Authorization": this.spotifyKey,
@@ -19,10 +29,10 @@ export class SpotifywebService {
     "Content-Type": "application/json"
   });
 
-  constructor(private http: HttpClient) { }
+
 
   loginAuth() {
-    return window.open(this.Oauth);
+    window.open(this.Oauth);
   }
 
   test() {
@@ -37,6 +47,14 @@ export class SpotifywebService {
       headers: this.headers
     });
   }
+
+  getCategories() {
+    console.log(this.spotifyKey);
+    return this.http.get(`https://api.spotify.com/v1/browse/categories`, {
+      headers: this.headers
+    });
+  }
+
 
   setSpotifyKey(key) {
     this.spotifyKey = key;

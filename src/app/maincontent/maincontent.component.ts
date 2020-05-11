@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpotifywebService } from '../spotifyweb.service';
 
 @Component({
   selector: 'app-maincontent',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaincontentComponent implements OnInit {
 
-  constructor() { }
+  dataArray;
+
+  constructor(private spotify: SpotifywebService) { }
 
   ngOnInit(): void {
+
+  }
+
+  getData() {
+    this.spotify.getCategories().subscribe(data => {
+      //this.dataArray = data.categories.items;
+      console.log(data)
+      console.log(this.dataArray);
+    });
   }
 
 }
