@@ -8,14 +8,17 @@ export class SpotifywebService {
   constructor(private http: HttpClient) { }
 
   spotifyKey = "";
-  apiFirstPartURL = "https://api.spotify.com/v1/";
+  apiFirstPartURL = "https://api.spotify.com/v1";
   authURL = "https://accounts.spotify.com/authorize";
+  scopesArray = ["ugc-image-upload", "user-read-playback-state", "user-modify-playback-state", "user-read-currently-playing",
+    "streaming", "app-remote-control", "user-read-email", "user-read-private", "playlist-read-collaborative", "playlist-modify-public", "playlist-read-private",
+    "user-library-modify", "user-library-read", "user-top-read", "user-read-playback-position", "user-read-recently-played", "user-follow-read", "user-follow-modify"];
 
   query_param = {
     client_id: "21e0d925502047b08c82d197558a42e5",
     response_type: "code",
     redirectUri: "http://127.0.0.1:4200/dashboard/",
-    scopes: "user-read-private user-read-email streaming",
+    scopes: this.scopesArray.join(" "),
     showDialog: true
   };
 
@@ -43,6 +46,44 @@ export class SpotifywebService {
     });
   }
 
+  fetchData(headerValue) {
+    this.setHeaders(this.headers);
+    return this.http.get(`${this.apiFirstPartURL}/${headerValue}/playlists`, {
+      headers: this.headers
+    });
+  }
+
+  //ALBUMS
+
+  getAlbumTracks() {
+
+  }
+
+  //ARTISTS
+
+  //BROWSE
+
+  //EPISODES
+
+  //FOLLOW
+
+  //LIBRARY
+
+  //PERSONALIZATION
+
+  //PLAYER
+
+  //PLAYLISTS
+
+  //SEARCH
+
+  //TRACKS
+
+  //SHOWS
+
+  //USERS PROFILE
+
+
   searchItem(query) { //, type, market, limit, offset
     // let queryEncode = query.replace(" ", "%20");
     this.setHeaders(this.headers);
@@ -66,12 +107,11 @@ export class SpotifywebService {
   }
 
   getUserPlaylist() {
-    this.setHeaders(this.headers);
-    return this.http.get(`https://api.spotify.com/v1/me/playlists`, {
-      headers: this.headers
-    });
+    // this.setHeaders(this.headers);
+    // return this.http.get(`https://api.spotify.com/v1/me/playlists`, {
+    //   headers: this.headers
+    // });
+    return this.fetchData("me");
   }
-
-
 
 }
