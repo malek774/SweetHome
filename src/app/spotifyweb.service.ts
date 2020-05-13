@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class SpotifywebService {
   constructor(private http: HttpClient) { }
 
-  //redirectUri = 'http://localhost:4200';
+  spotifyKey = "";
   apiFirstPartURL = "https://api.spotify.com/v1/";
   authURL = "https://accounts.spotify.com/authorize";
 
@@ -18,8 +18,6 @@ export class SpotifywebService {
     scopes: "user-read-private user-read-email streaming",
     showDialog: true
   };
-
-  spotifyKey = "";
 
   Oauth = `${this.authURL}?client_id=${this.query_param.client_id}&redirect_uri=${encodeURIComponent(this.query_param.redirectUri)}&scope=${encodeURIComponent(this.query_param.scopes)}&response_type=token&state=123`;
 
@@ -33,31 +31,6 @@ export class SpotifywebService {
     window.open(this.Oauth);
   }
 
-  test() {
-    console.log(this.spotifyKey);
-    this.setHeaders(this.headers);
-    return this.http.get("https://api.spotify.com/v1/search?q=dotan&type=artist", {
-      headers: this.headers
-    });
-  }
-
-  searchItem(query) { //, type, market, limit, offset
-    let queryEncode = query.replace(" ", "%20");
-    this.setHeaders(this.headers);
-    return this.http.get(`https://api.spotify.com/v1/search?query=${queryEncode}&type=album,artist,playlist,track`, {
-      headers: this.headers
-    });
-  }
-
-  getCategories() {
-    console.log(this.spotifyKey);
-    this.setHeaders(this.headers);
-    return this.http.get(`https://api.spotify.com/v1/browse/categories`, {
-      headers: this.headers
-    });
-  }
-
-
   setSpotifyKey(key) {
     this.spotifyKey = key;
   }
@@ -69,4 +42,36 @@ export class SpotifywebService {
       "Content-Type": "application/json"
     });
   }
+
+  searchItem(query) { //, type, market, limit, offset
+    // let queryEncode = query.replace(" ", "%20");
+    this.setHeaders(this.headers);
+    return this.http.get(`https://api.spotify.com/v1/search?query=${encodeURIComponent(query)}&type=album,artist,playlist,track`, {
+      headers: this.headers
+    });
+  }
+
+  getCategoryPlaylist(categoryId) {
+    this.setHeaders(this.headers);
+    return this.http.get(`https://api.spotify.com/v1/browse/categories/${categoryId}/playlists`, {
+      headers: this.headers
+    });
+  }
+
+  getCategories() {
+    this.setHeaders(this.headers);
+    return this.http.get(`https://api.spotify.com/v1/browse/categories`, {
+      headers: this.headers
+    });
+  }
+
+  getUserPlaylist() {
+    this.setHeaders(this.headers);
+    return this.http.get(`https://api.spotify.com/v1/me/playlists`, {
+      headers: this.headers
+    });
+  }
+
+
+
 }

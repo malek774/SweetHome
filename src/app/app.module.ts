@@ -13,6 +13,10 @@ import { ContentComponent } from './maincontent/content/content.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
+import { BrowseComponent } from './browse/browse.component';
+import { MyplaylistComponent } from './myplaylist/myplaylist.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MaincontentComponent,
     ContentComponent,
     LoginpageComponent,
-    DashboardComponent
+    DashboardComponent,
+    HomeComponent,
+    BrowseComponent,
+    MyplaylistComponent,
+    MyprofileComponent
   ],
   imports: [
     BrowserModule,
