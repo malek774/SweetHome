@@ -46,18 +46,33 @@ export class SpotifywebService {
     });
   }
 
-  fetchData(headerValue) {
-    this.setHeaders(this.headers);
-    return this.http.get(`${this.apiFirstPartURL}/${headerValue}/playlists`, {
+  // fetchData(endPoint, method, params) {
+  //   this.setHeaders(this.headers); //the header with the key should be set everytime you do a fetch
+  //   return this.http.get(`${this.apiFirstPartURL}/${endPoint}`, {
+  //     headers: this.headers
+  //   });
+  // }
+
+  fetchData(endPoint, method) {
+    this.setHeaders(this.headers); //the header with the key should be set everytime you do a fetch
+    // return this.http.get(`${this.apiFirstPartURL}/${endPoint}`, {
+    //   headers: this.headers
+    // });
+
+    return this.http.request(method, `${this.apiFirstPartURL}/${endPoint}`, {
       headers: this.headers
     });
   }
 
   //ALBUMS
 
-  getAlbumTracks() {
+  // getAlbums() {
+  //   return this.fetchData("albums");
+  // }
 
-  }
+  // getAlbumTracks() {
+  //   return this.fetchData("albums");
+  // }
 
   //ARTISTS
 
@@ -100,10 +115,11 @@ export class SpotifywebService {
   }
 
   getCategories() {
-    this.setHeaders(this.headers);
-    return this.http.get(`https://api.spotify.com/v1/browse/categories`, {
-      headers: this.headers
-    });
+    //this.setHeaders(this.headers);
+    // return this.http.get(`https://api.spotify.com/v1/browse/categories`, {
+    //   headers: this.headers
+    // });
+    return this.fetchData("browse/categories", "GET");
   }
 
   getUserPlaylist() {
@@ -111,7 +127,7 @@ export class SpotifywebService {
     // return this.http.get(`https://api.spotify.com/v1/me/playlists`, {
     //   headers: this.headers
     // });
-    return this.fetchData("me");
+    return this.fetchData("me/playlists", 'GET');
   }
 
 }
