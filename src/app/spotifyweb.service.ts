@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -259,27 +259,100 @@ export class SpotifywebService {
     return this.fetchData(`playlists/${playlistId}`, 'PUT');
   } //need to add body parameters
 
+  //Create a playlist for a Spotify user. (The playlist will be empty until you add tracks.)
+  createPlaylist(userId: string) {
+    return this.fetchData(`users/${userId}/playlists`, 'POST');
+  } //need to add body parameters
+
+  //Get a list of the playlists owned or followed by the current Spotify user.
+  getCurrentUserPlaylist() {
+    return this.fetchData("me/playlists", 'GET');
+  }
+
+  //Get a list of the playlists owned or followed by a Spotify user.
+  getListUserPlaylist(userId) {
+    return this.fetchData(`users/${userId}/playlists`, 'GET');
+  }
+
+  //Get a playlist owned by a Spotify user.
+  getPlaylist(playlistId) {
+    return this.fetchData(`playlists/${playlistId}`, 'GET');
+  }
+
+  //Get the current image associated with a specific playlist.
+  getPlaylistCoverImage(playlistId) {
+    return this.fetchData(`playlists/${playlistId}/images`, 'GET');
+  }
+
+  //Get full details of the tracks or episodes of a playlist owned by a Spotify user.
+  getPlaylistItems(playlistId) {
+    return this.fetchData(`playlists/${playlistId}/tracks`, 'GET');
+  }
+
+  //Remove one or more items from a user’s playlist.
+  removePlaylistItems(playlistId) {
+    return this.fetchData(`playlists/${playlistId}/tracks`, 'DELETE');
+  } //need to add body image
+
+
+
+
   //********************SEARCH********************//
 
-  //********************TRACKS********************//
+  //Get Spotify Catalog information about albums, artists, playlists, tracks, shows or episodes that match a keyword string.
+  searchItem(query) { //, type, market, limit, offset
+    return this.fetchData(`search?query=${encodeURIComponent(query)}&type=album,artist,playlist,track`, 'GET');
+  }
 
   //********************SHOWS********************//
 
-  //********************USERS PROFILE********************//
+  //Get Spotify catalog information for a single show identified by its unique Spotify ID.
+  getShow(id) {
+    return this.fetchData(`shows/${id}`, 'GET');
+  }
+  //Get Spotify catalog information for multiple shows based on their Spotify IDs.
 
-
-  searchItem(query) { //, type, market, limit, offset
-    // let queryEncode = query.replace(" ", "%20");
-    this.setHeaders(this.headers);
-    return this.http.get(`https://api.spotify.com/v1/search?query=${encodeURIComponent(query)}&type=album,artist,playlist,track`, {
-      headers: this.headers
-    });
+  getSeveralShow(id: string[]) {
+    return this.fetchData(`shows/?ids=${id.join(",")}`, 'GET');
   }
 
+  //Get Spotify catalog information about an show’s episodes. Optional parameters can be used to limit the number of episodes returned.
+  getShowEpisode(id) {
+    return this.fetchData(`shows/${id}/episodes`, 'GET');
+  }
 
+  //********************TRACKS********************//
 
-  getUserPlaylist() {
-    return this.fetchData("me/playlists", 'GET');
+  //Get a detailed audio analysis for a single track identified by its unique Spotify ID.
+  getAudioAnalysisTrack(id) {
+    return this.fetchData(`audio-analysis/${id}`, 'GET');
+  }
+
+  //Get audio feature information for a single track identified by its unique Spotify ID.
+  getAudioFeaturesTrack(id) {
+    return this.fetchData(`audio-features/${id}`, 'GET');
+  }
+
+  //Get Spotify catalog information for a single track identified by its unique Spotify ID.
+  getTrack(id) {
+    return this.fetchData(`tracks/${id}`, 'GET');
+  }
+
+  //Get Spotify catalog information for multiple tracks based on their Spotify IDs.
+  getSeveralTracks(id: string[]) {
+    return this.fetchData(`tracks/ids=${id.join(",")}`, 'GET');
+  }
+
+  //********************USERS PROFILE********************//
+
+  //Get detailed profile information about the current user (including the current user’s username).
+  getCurrentUserProfile() {
+    return this.fetchData(`me`, 'GET');
+  }
+
+  //Get public profile information about a Spotify user.
+  getAUserProfile(id) {
+    return this.fetchData(`users/${id}`, 'GET');
   }
 
 }
