@@ -115,18 +115,10 @@ export class SpotifywebService {
   }
 
   getCategories() {
-    //this.setHeaders(this.headers);
-    // return this.http.get(`https://api.spotify.com/v1/browse/categories`, {
-    //   headers: this.headers
-    // });
     return this.fetchData("browse/categories", "GET");
   }
 
   getUserPlaylist() {
-    // this.setHeaders(this.headers);
-    // return this.http.get(`https://api.spotify.com/v1/me/playlists`, {
-    //   headers: this.headers
-    // });
     return this.fetchData("me/playlists", 'GET');
   }
 
