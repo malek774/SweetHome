@@ -14,6 +14,9 @@ export class MaincontentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
+    this.spotify.changePlaylistDetails("6c4WI0Ogg5RTl0S3BTa3OV", "Earphoria", true, "Just Listen.").subscribe(data => {
+      console.log(data);
+    });
   }
 
   getData() {

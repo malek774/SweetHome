@@ -13,7 +13,7 @@ export class MyplaylistComponent implements OnInit {
   constructor(private spotify: SpotifywebService) { }
 
   ngOnInit(): void {
-    this.spotify.getUserPlaylist().subscribe(data => {
+    this.spotify.getCurrentUserPlaylist().subscribe(data => {
       console.log(data['items']);
       this.userPlaylistData = data['items'];
       console.log(this.userPlaylistData);

@@ -47,12 +47,25 @@ export class SpotifywebService {
   }
 
 
-  fetchData(endPoint, method) {
+  fetchData(endPoint, method, bodyParam = null) {
     this.setHeaders(this.headers); //the header with the key should be set everytime you do a fetch
     return this.http.request(method, `${this.apiFirstPartURL}/${endPoint}`, {
-      headers: this.headers
+      headers: this.headers,
+      body: bodyParam,
+      responseType: 'json'
     });
   }
+
+  //Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)
+  changePlaylistDetails(playlistId: string, nameValue: string, publicValue: boolean, descriptionValue: string) {
+    return this.fetchData(`playlists/${playlistId}`, 'PUT', { name: nameValue, public: publicValue, description: descriptionValue });
+    // this.setHeaders(this.headers); //the header with the key should be set everytime you do a fetch
+    // return this.http.request("PUT", `${this.apiFirstPartURL}/playlists/${playlistId}`, {
+    //   headers: this.headers,
+    //   body: { name: nameValue, public: true, description: descriptionValue },
+    //   responseType: 'json'
+    // });
+  } //need to add body parameters
 
   //********************ALBUMS********************//
 
@@ -254,10 +267,10 @@ export class SpotifywebService {
     return this.fetchData(`playlists/${playlistId}/tracks`, 'POST');
   }
 
-  //Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)
-  changePlaylistDetails(playlistId: string) {
-    return this.fetchData(`playlists/${playlistId}`, 'PUT');
-  } //need to add body parameters
+  // //Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)
+  // changePlaylistDetails(playlistId: string, nameValue: string, publicValue: boolean, descriptionValue: string) {
+  //   return this.fetchData(`playlists/${playlistId}`, 'PUT', { "name": nameValue, "public": publicValue, "description": descriptionValue });
+  // } //need to add body parameters
 
   //Create a playlist for a Spotify user. (The playlist will be empty until you add tracks.)
   createPlaylist(userId: string) {
