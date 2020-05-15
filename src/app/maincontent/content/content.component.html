@@ -1,4 +1,4 @@
-<div class="content-container" *ngFor="let item of data">
+<div class="category-container" *ngFor="let item of data">
     <div class="image-container">
         <img [src]="item.icons[0].url" alt="">
     </div>
@@ -6,7 +6,5 @@
         <div class="header">
             {{item.name}}
         </div>
-        <p class="description">
-        </p>
     </div>
 </div>
