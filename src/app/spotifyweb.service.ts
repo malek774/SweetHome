@@ -15,7 +15,7 @@ export class SpotifywebService {
     "user-library-modify", "user-library-read", "user-top-read", "user-read-playback-position", "user-read-recently-played", "user-follow-read", "user-follow-modify"];
 
   query_param = {
-    client_id: "21e0d925502047b08c82d197558a42e5",
+    client_id: 
     response_type: "code",
     redirectUri: "http://127.0.0.1:4200/dashboard/",
     scopes: this.scopesArray.join(" "),
