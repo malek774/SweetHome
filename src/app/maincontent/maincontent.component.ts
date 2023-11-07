@@ -14,6 +14,7 @@ export class MaincontentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
+    this.getData2('0JQ5DAqbMKFQ00XGBls6ym')
     // this.spotify.changePlaylistDetails("6c4WI0Ogg5RTl0S3BTa3OV", "Earphoria", true, "Just Listen.").subscribe(data => {
     //   console.log(data);
     // });
@@ -27,4 +28,11 @@ export class MaincontentComponent implements OnInit {
     });
   }
 
+  getData2(t:any) {
+    this.spotify.getCategoryPlaylist(t).subscribe(data => {
+      this.dataArray = data["categories"].items;
+      console.log(data)
+      console.log(this.dataArray);
+    });
+  }
 }

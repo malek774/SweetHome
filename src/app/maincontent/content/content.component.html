@@ -1,6 +1,8 @@
 <div class="category-container" *ngFor="let item of data">
     <div class="image-container">
+        <button class="hexagon" (click)="gotoPlaylist(item.id)">
         <img [src]="item.icons[0].url" alt="">
+        </button>
     </div>
     <div class="description-container">
         <div class="header">

@@ -15,9 +15,9 @@ export class SpotifywebService {
     "user-library-modify", "user-library-read", "user-top-read", "user-read-playback-position", "user-read-recently-played", "user-follow-read", "user-follow-modify"];
 
   query_param = {
-    client_id: 
+    client_id: '88eaef72723e4f16b9c7d5f01bb6d089',
     response_type: "code",
-    redirectUri: "http://127.0.0.1:4200/dashboard/",
+    redirectUri: "http://localhost:4200/dashboard/",
     scopes: this.scopesArray.join(" "),
     showDialog: true
   };
@@ -252,8 +252,14 @@ export class SpotifywebService {
   //********************PLAYLISTS********************//
 
   //Add one or more items to a user’s playlist.
-  addItemsToPlaylist(playlistId: string) {
-    return this.fetchData(`playlists/${playlistId}/tracks`, 'POST');
+  addItemsToPlaylist(playlistId: string,uri:any) {
+    const obj ={
+      "uris": [
+        "spotify:track:4iV5W9uYEdYUVa79Axb7Rh"
+      ],
+      "position": 0
+  }
+    return this.fetchData(`playlists/${playlistId}/tracks`, 'POST',obj);
   }
 
   //Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)

@@ -1,7 +1,7 @@
 <div class="trackplayer-container">
     <div class="left-part">
         <div class="track-cover">
-            <img src="" alt="logo">
+            <img style="width: 60px; height:60px" class="img2" [src]="photo" alt="logo">
         </div>
         <div class="track-description-container">
             <div class="title-song">
@@ -17,33 +17,9 @@
 
     </div>
     <div class="center-part">
-        <div class="track-controls">
-            <div class="random-button">
-                <img src="../../assets/img/change.svg" alt="change logo">
-            </div>
-            <div class="backwards-button">
-                <img src="../../assets/img/next.svg" alt="backwards logo">
-            </div>
-            <div class="playpause-button">
-                <img src="../../assets/img/play-button.svg" alt="play pause logo">
-            </div>
-            <div class="forward-button">
-                <img src="../../assets/img/next.svg" alt="next logo">
-            </div>
-            <div class="repeat-button">
-                <img src="../../assets/img/repeat.svg" alt="repeat logo">
-            </div>
-        </div>
-        <div class="track-bar">
-            <div class="current-duration">00:00</div>
-            <div class="duration-bar"></div>
-            <div class="total-duration">04:30</div>
-        </div>
-    </div>
-    <div class="right-part">
-        <div class="volume-logo">
-            <img src="../../assets/img/loudspeaker.svg" alt="volume logo">
-        </div>
-        <div class="volume-bar"></div>
-    </div>
+     
+        <audio #audioPlayer controls>
+            <source  id="audioSource" [src]="mp3" type="audio/mpeg" >
+            Your browser does not support the audio element.
+          </audio>
 </div>

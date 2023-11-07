@@ -17,6 +17,8 @@ import { HomeComponent } from './home/home.component';
 import { BrowseComponent } from './browse/browse.component';
 import { MyplaylistComponent } from './myplaylist/myplaylist.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { PlaylistComponent } from './maincontent/playlist/playlist.component';
+import { SongsComponent } from './maincontent/Songs/songs.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,15 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     TrackplayerComponent,
     SearchbarComponent,
     MaincontentComponent,
+    PlaylistComponent,
     ContentComponent,
     LoginpageComponent,
     DashboardComponent,
     HomeComponent,
     BrowseComponent,
     MyplaylistComponent,
-    MyprofileComponent
+    MyprofileComponent,
+    SongsComponent
   ],
   imports: [
     BrowserModule,

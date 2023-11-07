@@ -1,0 +1,17 @@
+<h2>Playlists :</h2>
+
+ <div class="bg">
+<input type="text" (input)="onSearchChange($event)" placeholder="Search Music" />
+</div>
+
+
+<br>
+
+      <ng-container *ngFor="let item of filteredArray">
+        <img [src]="item.track.album.images[0].url" alt="" (click)="play(item.track.preview_url, item.track.album.images[0].url)">
+
+
+
+<div *ngIf="selected">
+<app-trackplayer [photo]="photo" [mp3]="mp3"></app-trackplayer>
+</div>

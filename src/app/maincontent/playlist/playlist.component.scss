@@ -1,0 +1,206 @@
+body{
+    margin:0;
+    height:100vh;
+    display:grid;
+    place-items:center;
+    background-color:#010101;
+  }
+  .btn-gradient {
+    padding: 1rem 1.5rem;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  
+    // -webkit-transition: all 500ms ease;
+    // -moz-transition: all 500ms ease;
+    // -ms-transition: all 500ms ease;
+    // -o-transition: all 500ms ease;
+    // transition: all 500ms ease;
+    background-size: 300% 100%;
+    background-position: center center;
+    opacity: 50%;
+    background-image: linear-gradient(138deg, #000000 0%, #010101 25%, #2b232f42 65%, #C645FF 100%);
+    border-radius: 30%;
+
+  }
+  .btn-gradient2 {
+    margin-left: 7%;
+    padding: 1rem 1.5rem;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  
+    // -webkit-transition: all 500ms ease;
+    // -moz-transition: all 500ms ease;
+    // -ms-transition: all 500ms ease;
+    // -o-transition: all 500ms ease;
+    // transition: all 500ms ease;
+    background-size: 300% 100%;
+    background-position: center center;
+    opacity: 50%;
+    background-image: linear-gradient(138deg, #000000 0%, #010101 25%, #2b232f42 65%, #C645FF 100%);
+    border-radius: 30%;
+
+  }
+  .btn-gradient:hover {
+    background-position: left center;
+  }
+  
+  .btn-gradient:focus {
+    background-position: right center;
+  }
+  .buttons{
+    color: rgb(30, 13, 13);
+    margin-left: 50%;
+    margin-top: -5%;
+  }
+  .fill:hover,
+.fill:focus {
+  box-shadow: inset 0 0 0 2em var(--hover);
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+.offset {  
+    box-shadow: 
+      0.3em 0.3em 0 0 var(--color),
+      inset 0.3em 0.3em 0 0 var(--color);
+    
+    &:hover,
+    &:focus {
+      box-shadow: 
+        0 0 0 0 var(--hover),
+        inset 4em 1.5em 0 0 var(--hover);
+    }
+  }
+  $colors: (
+  fill: #a972cb,
+  pulse: #180707, 
+  close: #ff7f82, 
+  raise: #ffa260, 
+  up: #e4cb58, 
+  slide: #8fc866, 
+  offset: #19bc8b
+);
+
+// Sass variables compile to a static string; CSS variables are dynamic and inherited
+  // Loop through the map and set CSS custom properties using Sass variables
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+// Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+button {  
+  color: var(--color);
+  transition: 0.25s;
+  
+  &:hover,
+  &:focus { 
+    border-color: var(--hover);
+    color: #2c1414;
+  }
+}
+
+//=== Pen styling, ignore
+body {
+  color: #fff;
+  background: hsl(227, 10%, 10%);
+  font: 300 1em 'Fira Sans', sans-serif;
+  
+  // Center everything ever
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+}
+
+// Basic button styles
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+h1 { font-weight: 400; }
+
+code { 
+  color: #e4cb58;
+  font: inherit;
+}
+  
+// Animate the size, outside
+.pulse:hover, 
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em transparent;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 var(--hover); }
+  }
+  
+  .gallery{
+    position:relative;
+    width:300px;
+    height:200px;
+    transform-style:preserve-3d;
+    animation:rotate 35s linear infinite;
+    margin-top: 181px;
+    padding-left: 100px
+  }
+  
+  @keyframes rotate{
+    from{
+      transform:perspective(1200px) rotateY(0deg);
+    }
+    
+    to{
+      transform:perspective(1200px) rotateY(360deg);
+    }
+  }
+  
+  .gallery span{
+    position:absolute;
+    width:100%;
+    height:100%;
+    transform-origin:center;
+    transform-style:preserve-3d;
+    transform:rotateY(calc(var(--i) * 45deg)) translateZ(380px);
+  }
+  
+  .gallery span img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .selected{
+    box-shadow:0px 12px 22px 1px #333;
+}
+.image-container {
+    display: flex;
+  }
+  
+  img {
+    width: 100px; /* Set the width as needed */
+    height: 100px; /* Set the height as needed */
+    margin: 5px;
+  }
+  
+  .highlighted {
+    border: 2px solid red; /* Example: red border for the selected image */
+    /* You can add other styles to highlight the selected image */
+  }
+  .selecti{
+
+    margin-left: 58%;
+    margin-top: -12%;  }

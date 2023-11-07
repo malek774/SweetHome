@@ -5,4 +5,17 @@
     padding: 0;
 }
 html, body { height: 100%; }
-body { margin: 0; }
+body { margin: 0; background-color: black;  background-size: cover;
+    background-repeat: no-repeat;     background-image: url('https://33.media.tumblr.com/8e782da8bb14a7c56fe18247af8059a9/tumblr_nhw7qoJEJT1thk6vpo1_1280.gif'); /* Replace 'yourgif.gif' with the path to your GIF */
+}
+
+.gif-background {
+   
+    height: 100vh; /* Set the desired height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Text color */
+    text-align: center;
+  }

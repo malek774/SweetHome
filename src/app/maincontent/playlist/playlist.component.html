@@ -1,0 +1,33 @@
+<h2>Playlists :</h2>
+
+
+
+
+
+
+
+
+
+<div *ngIf="dataArray">
+
+<!-- --i:1 -->
+<div class="gallery">
+  <span *ngFor="let item of dataArray; let i = index" [style]="'--i:' + (i + 1)">
+
+    <img (click)="gotoSongs(item.id,item.images[0].url)" [src]="item.images[0].url" alt="" />
+  </span>
+</div>
+
+<div class="buttons">
+
+
+<button (click)="addtomyplaylist()"  class="pulse">Add to my Playlist</button>
+
+<button (click)="navigate()" class="pulse">Go to Songs</button>
+
+</div>
+<div class="selecti" *ngIf="selectedImage">
+  <img  [src]="selectedImage" alt="" />
+
+ 
+</div>
